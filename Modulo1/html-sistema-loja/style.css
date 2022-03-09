@@ -1,0 +1,19 @@
+.block-inline{
+    background-color: aqua;
+    margin: 5px;
+    font-weight: bold;
+    color: red;
+}
+
+.text{
+    margin: 3px;
+    color:blueviolet;
+}
+
+.name{
+    background-color: black;
+    border: 3px solid red;
+    margin: 10px;
+color:rgb(4, 252, 45)
+
+}
