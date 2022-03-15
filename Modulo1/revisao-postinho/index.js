@@ -182,7 +182,7 @@ console.log(primeiraDose())*/
 
 // Exercício 6 -------------------------------------------------------------------------------------
 
-const segundaDose = (nomeDoUsuario) => {
+/*const segundaDose = (nomeDoUsuario) => {
     
     const usuarios = [
         { nome: "Artur", imunizacao: "incompleta" },
@@ -272,4 +272,5 @@ console.log(segundaDoseDesafio("ALGUM NOME AQUI"));
 const avisoAosAtrasadosDesafio = () => {
     //  Sua lógica aqui
 }
-console.log(avisoAosAtrasadosDesafio());
+console.log(avisoAosAtrasadosDesafio());*/
+
