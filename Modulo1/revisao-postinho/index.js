@@ -72,11 +72,11 @@ const cadastro = () => {
       //  Sua lógica aqui
 
 }
-console.log(cadastro());*/
+console.log(cadastro());
 
 // Exercício 4-----------------------------------------------------------------------------------------------
 
-/*const login = () => {
+const login = () => {
     const login = "labenu"
     //  Sua lógica aqui
     const senha = prompt("Sua senha ?")
@@ -92,7 +92,10 @@ console.log(login());*/
 
 
 /*const login = () => {
-    /*const login = "labenu"
+    const usuario = prompt("Seu usuario ?")
+    const senha = prompt("Sua senha ?")
+   
+    //const login = "labenu"
     const usuarios = [
         {
             nome: "Artur",
@@ -121,12 +124,11 @@ console.log(login());*/
         ]
         
     //  Sua lógica aqui
-    const usuario = prompt("Seu usuario ?")
-    const senha = prompt("Sua senha ?")
-    /*if (usuarios == usuario && usuarios == senha){
-        console.log("Bem vindo Arthur")
+    
+    if (usuario === usuarios.nome  && senha === usuarios.senha){
+        console.log("Bem vindo")
          }else {
-           console.log("Senha Inválida")
+           console.log("Usuario não encontrado")
        }
        const array = usuarios.filter((item, index, array) => {
         return item.nome == usuario})
@@ -136,7 +138,7 @@ console.log(login());*/
 console.log(login()); 
 
 // Exercício 5----------------------------------------------------------------------------------------------------
-/*
+
 const primeiraDose = () => {
 let nome = prompt("Seu nome por favor")
 let vacina = prompt("Qual vacina você tomou?")
@@ -147,23 +149,27 @@ let vacina = prompt("Qual vacina você tomou?")
     switch (vacina) {
         case "Coronavac":
           dias = 28
+          da = "12/04/2022"
           break;
         case "Astrazenica":
           dias = 90
+          da = "13/06/2022"
           break;
         case "Pfizer":
           dias = 90
+          da = "13/06/2022"
           break;
     
       }
 
   let tempo = dias
-   let data = "14/03/2022" + dias
+   let data = da
+   
    if (vacina === "Coronavac"){
     return `Olá ${nome}! A próxima dose da ${vacina} é daqui a ${tempo} dias. Compareça no posto na data ${data}.`
      }else if(vacina === "Astrazenica"){
        return `Olá ${nome}! A próxima dose da ${vacina} é daqui a ${tempo} dias. Compareça no posto na data ${data}.`
-   }else {
+   }else if(vacina === "Pfizer"){
        return `Olá ${nome}! A próxima dose da ${vacina} é daqui a ${tempo} dias. Compareça no posto na data ${data}.`
    }
    
@@ -183,14 +189,14 @@ const segundaDose = (nomeDoUsuario) => {
         { nome: "Barbara", imunizacao: "incompleta" },
         { nome: "Carlos", imunizacao: "incompleta" }
     ]
-if(nomeDoUsuario == "Artur"){
-    usuarios.imunizacao.replaceAll("incompleta", "Completa")
+if(usuarios == "Artur"){
+    usuarios.imunizacao = "completa"
     return usuarios
-}else if(nomeDoUsuario == "Barbara"){
-    usuarios.imunizacao.replaceAll("incompleta", "Completa")
+}else if(usuarios == "Barbara"){
+    usuarios.imunizacao = "completa"
     return usuarios
-}else if(nomeDoUsuario == "Carlos"){
-    usuarios.imunizacao.replaceAll("incompleta", "Completa")
+}else if(usuarios == "Carlos"){
+    usuarios.imunizacao = "completa"
     return usuarios
 }
     //  Sua lógica aqui
