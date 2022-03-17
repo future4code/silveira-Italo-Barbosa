@@ -1,0 +1,106 @@
+*{
+background-color: rgb(185, 245, 225);
+background-image: url(https://th.bing.com/th/id/R.77d76904fa501a6c484e324aa1cf330e?rik=OJH5xaBvgahc7w&pid=ImgRaw&r=0);
+
+
+}
+
+
+.menu{
+    background-color: black;
+    color: blue;
+    margin: 15px;
+    margin-top: 15px;
+    border: 2px solid aqua;
+    position: sticky;
+    
+}
+
+
+
+.titu{
+    font-size: larger;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+   display: inline-block;
+   margin-left: 60px;
+   margin-top: 50px;
+   margin: 60px;
+   border: 2px solid black;
+}
+
+.apres{
+    background-color: antiquewhite;
+    text-align: center;
+    color: black;
+    display: block; 
+   margin-left: 60px;
+   margin-right: 60px;
+}
+
+.ins{
+    margin-top:auto;
+    width: 200px;
+    height: 200px;
+    display: inline;
+    
+    
+}
+
+.hv{
+    color: rgb(255, 136, 0);
+    font-size: 100px;
+    
+}
+
+.botaoL{
+    color: rgb(0, 136, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.botaoL-button:hover {
+    color: brown;
+}
+
+.botaoL-button:active {
+color: aqua;
+}
+
+h2{
+    margin-left: 60px;
+}
+
+.box{
+    height: 100px;
+    width: 500px;
+}
+
+.for{
+margin-top: 30px;
+    text-align: center;
+}
+
+.log{
+    height: 60px;
+    width: 60px;
+}
+.cont{
+    text-align: center;
+    margin-left: 90px;
+    height: 60px;
+    width: auto;
+    background-color: azure;
+
+}
+
+.form-button:hover{
+    background-color: aliceblue;
+}
+
+.ti{
+    text-align: center;
+}
+.it{
+    text-align: center;
+    margin-right: 50px;
+}
