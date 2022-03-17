@@ -1,10 +1,11 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
+    height: 100%;
+    width: 100%;
     display: grid;
     min-height: 100%;
     grid-template-columns: 200px 1fr;
@@ -21,7 +22,7 @@ header{
 }
 
 main{
-    background-color: rgba(104, 213, 233, 0.315);
+    
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 10px;
@@ -47,9 +48,10 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 2px 2px 5px rgb(255, 11, 11);
+    box-shadow: 2px 2px 2px rgb(255, 11, 11);
     margin: 10px;
-   
+    
+
 }
 
 .media p{
@@ -63,7 +65,7 @@ footer{
     align-items: flex-end;
     justify-content: center;
     grid-column: 1 / -1;
-   
+
 }
 footer h4{
     text-align: center;
@@ -71,12 +73,30 @@ footer h4{
     background-color: azure;
 }
 
-#video video #video p{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    
 
+
+div video {
+    
+    width: 600px;
+    height: 300px;
+  
+    
+}
+
+
+
+div{
+
+
+}
+
+@media screen and (max-device-width : 480px) {
+   
+
+   .grid-container{
+      
+       grid-template-columns: 1fr;
+
+      
+    }
 }
