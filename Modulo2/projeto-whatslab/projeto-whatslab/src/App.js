@@ -1,8 +1,7 @@
 import './App.css';
 import React from 'react';
 import styled from 'styled-components';
-import chat from './components/chat/chat';
-import newms from './components/newms/newms';
+import Mensagem from './components/newms/newms';
 
 
 const MensagemContainer = styled.div`
@@ -11,7 +10,7 @@ const MensagemContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const Pub = styled.div`
+const Lei = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -19,64 +18,97 @@ const Pub = styled.div`
   padding: 6px 12px;
 `
 
-const Mensagem = styled.p`
-height: 60px;
-width: 200px;
 
-`
-/*export default class App extends React.Component {
-
-
-
-};
-
-fuction App() {
+export default class App extends React.Component {
+  state = {
+  Mensagens: [
+    {nomeUsuario: 'Batman', Mensagem:'Olá', },
+    {nomeUsuario:'Highlander',  Mensagem:'Olá', },
+   
   
+  ],
+  nomeUsuario: "",
+  Mensagem:"",
+  
+  }
+  newms = () => {
+    const newms = {
+      nomeUsuario: this.state.valorInputnomeUsuario,
+      Mensagem: this.state.valorInputMensagem,
+     
+    };
+  const novasMensagens = [... this.state.Mensagens, newms];
+  this.setState({
+    Mensagens: novasMensagens,
+    nomeUsuario: "",
+    Mensagem:"",
+    
+  
+  });
+  return this.state.Mensagens;
+  };
+  
+  onChangeInputnomeUsuario = (event) => {
+    this.setState({ valorInputnomeUsuario: event.target.value });
+  };
+  onChangeInputMensagem = (event) => {
+    this.setState({ valorInputMensagem: event.target.value });
+  };
+  
+
+  render() {
+    const Chat = this.state.Mensagens.map((post, index) =>{
+      return (
+
+      <Mensagem
+      key= {index}
+      nomeUsuario={post.nomeUsuario}
+      Mensagem={post.Mensagem}
+      />
+      )
+      }
+      )
+
   return (
     
   <MensagemContainer>
 
-    <Pub>
+    <Lei>
        <input
-         // Mesma lógica do exemplo anterior
          value={this.state.valorInputnomeUsuario}
-         // Repare na função que é passada aqui no onChange
          onChange={this.onChangeInputnomeUsuario}
          placeholder={"Usuario"}
        />
        <input
-         // Diferente do input acima, a variável de estado aqui é outra
          value={this.state.valorInputMensagem}
-         // E a função também é outra
          onChange={this.onChangeInputMensagem}
          placeholder={"mensagem"}
        />
       
-       <button onClick={this.NewPost}>Enviar</button>
-     </Pub> 
+       <button onClick={this.newms}>Enviar</button>
+     </Lei> 
 
 
 
       <Mensagem
-       nomeUsuario={'paulinha'}
+       nomeUsuario={'Batman'}
        Mensagem={''}
        
      />
      <Mensagem
-       nomeUsuario={'Laissa'}
+       nomeUsuario={'Highlander'}
        Mensagem={''}
        
      />
   
-
+   <div>{Chat}</div>
    
 </MensagemContainer>
 
-
+  
   );
 
   
 }
-*/
+}
 
-export default App;

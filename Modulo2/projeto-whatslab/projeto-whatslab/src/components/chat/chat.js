@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
-const ChatContainer = styled.div`
+
+const MensagemContainer = styled.div`
     display: flex;
     justify-content: center;
     padding: 5px;
@@ -12,7 +13,7 @@ const InputMensagem = styled.input`
     margin-right: 5px;
 `
 
-export class SecaoChat extends Component {
+export class chat extends Component {
 	state = {
 		Mensagem: ''
 	}
@@ -28,13 +29,14 @@ export class SecaoChat extends Component {
 	}
 
 	render() {
-		return <ChatContainer>
+		return <MensagemContainer>
 			<InputMensagem
 				placeholder={'Mensagens'}
 				value={this.state.Mensagem}
 				onChange={this.onChangeMensagem}
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>
-		</ChatContainer>
+		</MensagemContainer>
 	}
 }
+

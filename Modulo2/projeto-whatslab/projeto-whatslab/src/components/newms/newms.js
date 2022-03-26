@@ -11,7 +11,7 @@ const MensagemContainer = styled.div`
 
 
 
-const ChatHeader = styled.h2`
+const MensagemHeader = styled.h2`
   height: 10px;
   width: 40px;
   margin-right: 10px;
@@ -30,7 +30,7 @@ class Mensagem extends React.Component {
 
   onClickMensagem = () => {
     this.setState({
-      Chat: !this.state.Chat
+      Mensagem: !this.state.Mensagem
     })
   }
 
@@ -38,24 +38,24 @@ class Mensagem extends React.Component {
 
   render() {
    
-    let componenteChat
+    let componenteMensagem
 
-    if(this.state.Chat) {
-        componenteChat = <SecaoMensagem aoEnviar={this.aoEnviarMensagem}/>
+    if(this.state.Mensagem) {
+        componenteMensagem = <SecaoMensagem aoEnviar={this.aoEnviarMensagem}/>
     }
 
     return <MensagemContainer>
-      <ChatHeader>
-       <h2>{this.props.UserName}</h2>
-      </ChatHeader>
+      <MensagemHeader>
+       <h2>{this.props.nomeUsuario}</h2>
+      </MensagemHeader>
 
       
       <p>{this.props.Mensagem}</p>
       
-      {componenteChat}
+      {componenteMensagem}
     </MensagemContainer>
   }
   
 }
 
-export default App
+export default Mensagem
