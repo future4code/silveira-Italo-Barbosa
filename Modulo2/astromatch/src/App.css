@@ -1,0 +1,28 @@
+fluent-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    height: 400px;
+    justify-content: center;
+    
+  }
+  
+  h2 {
+    font-size: var(--type-ramp-plus-5-font-size);
+    line-height: var(--type-ramp-plus-5-line-height);
+  }
+  
+  fluent-card > fluent-button {
+    align-self: flex-end;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  
+  
+  

@@ -2,7 +2,7 @@ import { useState } from "react"
 import React from "react"
 import Matches from "./components/Matches"
 import Home from "./components/Home"
-
+import { FluentCard } from "./Fluent/Fluent"
 
 
 
@@ -11,18 +11,18 @@ import Home from "./components/Home"
 
 function App() {
 
- const [Page, setPage]= useState("Home")
+ const [page, setPage]= useState("Home")
  
 
- const ToPage = () => {
-		switch (Page) {
+ const toPage = () => {
+		switch (page) {
 
       case "Home":
-      return <home ToPage ={ToPage}/>
+      return <Home setPage ={setPage}/>
       case "Matches":
-      return <Matches/>
+      return <Matches />
       default: 
-      return <home/>
+      return <Home/>
 
     }
  }
@@ -32,9 +32,9 @@ function App() {
     return	(
 		
 				
-				<div>
-				{ToPage() }
-				</div>
+				<FluentCard>
+				{toPage() }
+				</FluentCard>
 		
 			
       	

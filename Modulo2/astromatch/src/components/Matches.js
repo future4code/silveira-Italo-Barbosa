@@ -1,15 +1,34 @@
 import { useEffect, useState } from "react"
 import React from "react";
 import axios from "axios";
+import { FluentCard } from "../Fluent/Fluent";
+import styled from "styled-components";
 
 
 
- function Matches () {
+const Ul = styled.ul`
+ 
+ height: 500px;
+  width: 200px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  flex-direction: column;
+  text-align: center;
+  margin:auto;
+
+
+`
+
+
+
+ function Matches (props) {
 	
 	
-    const [matchlist, setMatchList] = useState()
-
-
+    const [matchlist, setMatchList] = useState([])
+    
 
     useEffect(()=>{
 
@@ -27,20 +46,20 @@ import axios from "axios";
 	
 		const NovoMatchList = matchlist.map((match)=>{
 
-          return <ul key={match.id}>
+          return <Ul>
                  <li><img src={match.photo}/>{match.name}</li>
 
-		         </ul>
+		         </Ul>
 
                                                     });
 
 
 return (
-	<div>
-				
+	<FluentCard>
+			
 	 {NovoMatchList}
 			    
-    </div>
+    </FluentCard>
 		       
        );
 

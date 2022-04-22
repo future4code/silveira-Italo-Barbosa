@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fluentui/web-components": "^2.3.1",
+    "@microsoft/fast-element": "^1.9.0",
+    "@microsoft/fast-foundation": "^2.42.2",
+    "@microsoft/fast-react-wrapper": "^0.2.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
@@ -23,7 +27,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-expressions": "off"
+    }
   },
   "browserslist": {
     "production": [
