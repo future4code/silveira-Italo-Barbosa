@@ -1,4 +1,4 @@
-import { provideFluentDesignSystem, fluentCard, fluentButton } from '@fluentui/web-components';
+import { provideFluentDesignSystem, fluentCard, fluentButton, Icon } from '@fluentui/web-components';
 import { provideReactWrapper } from '@microsoft/fast-react-wrapper';
 import React from 'react';
 

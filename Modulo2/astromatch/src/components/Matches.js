@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import React from "react";
 import axios from "axios";
-import { FluentCard } from "../Fluent/Fluent";
 import styled from "styled-components";
+import { fluentCard } from "@fluentui/web-components";
+
 
 
 
@@ -55,11 +56,11 @@ const Ul = styled.ul`
 
 
 return (
-	<FluentCard>
+	<fluentCard>
 			
 	 {NovoMatchList}
 			    
-    </FluentCard>
+    </fluentCard>
 		       
        );
 

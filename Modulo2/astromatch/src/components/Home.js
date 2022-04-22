@@ -6,10 +6,13 @@ import { FluentCard } from "../Fluent/Fluent";
 import styled from "styled-components";
 
 
+
+
+
 const Comp = styled.img`
  
 
- border: 4px solid Black;
+  border: 4px solid Black;
   height: 200px;
   width: 200px;
   border-radius: 2px;
@@ -20,7 +23,7 @@ const Comp = styled.img`
   flex-direction: column;
   text-align: center;
   margin:auto;
-padding: 5px;
+  padding: 5px;
 `
 
 const H2 = styled.h2`
@@ -34,8 +37,17 @@ const H2 = styled.h2`
   margin:auto;
 
 
+`
+const Div = styled.div`
+
+    align-self: flex-end;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
 
 `
+
 
 export default function Home (props) {
 
@@ -100,14 +112,14 @@ return(
         <H2>{profile.bio}</H2>
     </div>
 
-    <div>
-        <FluentButton appearance="accent" onClick={()=> ChoosePerson(true) }> ✔️ </FluentButton>
+    <Div>
+        <FluentButton appearance="accent" onClick={()=> ChoosePerson(true) }> 💕 </FluentButton>
         <FluentButton appearance="accent" onClick={()=> ChoosePerson(false) }> ❌ </FluentButton>
 
-    </div>
+    </Div>
 
     <div>
-        <FluentButton appearance="outline" onClick={()=> Limpar() }>Limpar Matches e Reject </FluentButton>
+        <FluentButton appearance="outline" onClick={()=> Limpar() }>Limpar histórico </FluentButton>
     </div>
 </FluentCard>
 

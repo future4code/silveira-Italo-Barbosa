@@ -17,12 +17,10 @@ fluent-card {
   
   fluent-card > fluent-button {
     align-self: flex-end;
-    align-items: center;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
+   
   }
 
+  
   
   
   
