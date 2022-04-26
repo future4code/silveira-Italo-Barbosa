@@ -1,21 +1,22 @@
 import axios from "axios"
+import { goToAdminPage, goToLogin } from '../pipe/line'
 
 
 export const URL = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Italo-souza-silveira"
 
 
-export const login = (body, history) => {
+export const login = (body, Navigate) => {
     axios.post(`${URL}/login`, body)
         .then((response) => {
             localStorage.setItem("token", response.data.token)
-            goToAdminPage(history)
+            goToAdminPage(Navigate)
         })
         .catch((error) => alert(error.response.data.message))
 }
 
-export const logout = (history) => {
+export const logout = (Navigate) => {
     localStorage.removeItem("token")
-    goToLoginPage(history)
+    goToLogin(Navigate)
 }
 
 export const encamA = (body, tripId, clear) => {
