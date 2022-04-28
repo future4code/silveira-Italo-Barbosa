@@ -14,13 +14,13 @@ const BTLayer2 = styled.div`
 const Home = () => {
     const Navigate = useNavigate()
     return (
-        <>
+        <div>
             <h1>LabeX</h1>
             <BTLayer2>
                 <button onClick={() => goToViagens(Navigate)}>Ver Viagens</button>
                 <button onClick={() => goToLogin(Navigate)}>Área de Admin</button>
             </BTLayer2>
-        </>
+        </div>
     )
 }
 

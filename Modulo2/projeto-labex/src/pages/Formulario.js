@@ -1,16 +1,16 @@
 import React from 'react'
-import useFormu from '../components/Requer'
-import requerData from '../components/Requer'
+import {useForm} from '../components/Form'
+import RequerData from '../components/Requer'
 import { encamA } from '../components/encam'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToViagens } from '../pipe/line'
-import { nacoes } from '../components/nacoes';
+import { country } from '../components/nacoes';
 
 const Formulario = () => {
     const [tripId, setTripId] = useState("")
-    const { formu, onChange, clear } = useFormu({ name: "", age: "", applicationText: "", profession: "", nacoes: "" })
-    const [TViagens] = requerData("/trips", {})
+    const { form, onChange, clear } = useForm({ name: "", age: "", applicationText: "", profession: "", country: "" })
+    const [TViagens] = RequerData("/trips", {})
     const Navigate = useNavigate()
 
     const clearCampos = () => {
@@ -20,7 +20,7 @@ const Formulario = () => {
 
     const onClickEnvia = (event) => {
         event.preventDefault()
-        encamA(formu, tripId, clearCampos)
+        encamA(form, tripId, clearCampos)
     }
 
     const onChangeViagens = (event) => {
@@ -42,7 +42,7 @@ const Formulario = () => {
                 <input
                     placeholder={"Nome"}
                     name={"name"}
-                    value={formu.name}
+                    value={form.name}
                     onChange={onChange}
                     pattern={"^.{3,}$"}
                     title={"O nome deve ter no mínimo 3 caracteres"}
@@ -52,7 +52,7 @@ const Formulario = () => {
                     placeholder={"Idade"}
                     type={"number"}
                     name={"age"}
-                    value={formu.age}
+                    value={form.age}
                     onChange={onChange}
                     required
                     min={21}
@@ -60,7 +60,7 @@ const Formulario = () => {
                 <input
                     placeholder={"Texto de sua Candidatura"}
                     name={"applicationText"}
-                    value={formu.applicationText}
+                    value={form.applicationText}
                     onChange={onChange}
                     required
                     pattern={"^.{20,}$"}
@@ -69,7 +69,7 @@ const Formulario = () => {
                 <input
                     placeholder={"Profissão"}
                     name={"profession"}
-                    value={formu.profession}
+                    value={form.profession}
                     onChange={onChange}
                     required
                     pattern={"^.{5,}$"}
@@ -77,14 +77,14 @@ const Formulario = () => {
                 />
                 <select
                     placeholder={"País"}
-                    name={"nacoes"}
-                    value={formu.nacoes}
+                    name={"country"}
+                    value={form.country}
                     onChange={onChange}
                     required
                 >
                     <option value={""} disabled>Escolha uma Nação</option>
-                    {nacoes.map((nacoes) => {
-                        return <option value={nacoes} key={nacoes}>{nacoes}</option>
+                    {country.map((country) => {
+                        return <option value={country} key={country}>{country}</option>
                     })}
                 </select>
                 <div>

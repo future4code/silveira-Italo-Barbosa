@@ -1,30 +1,30 @@
 import React from 'react'
-import useFormu from "../components/Requer"
+import {useForm} from "../components/Form"
 import { goToHome} from '../pipe/line'
 import { login } from "../components/encam"
 import { useNavigate } from 'react-router-dom'
 import PagesUnp from '../components/PagesUnp'
 
 
-const LoginPage = () => {
+const Login = () => {
     PagesUnp()
     const Navigate = useNavigate()
-    const { formu, onChange } = useFormu({ email: "", password: "" })
+    const { form, onChange } = useForm({ email: "", password: "" })
 
     const onClickLogin = (event) => {
         event.preventDefault()
-        login(formu, Navigate)
+        login(form, Navigate)
     }
 
     return (
         <div>
             <h1>Login</h1>
-            <formu onSubmit={onClickLogin}>
+            <form onSubmit={onClickLogin}>
                 <input
                     placeholder={"E-mail"}
                     type={"email"}
                     name={"email"}
-                    value={formu.email}
+                    value={form.email}
                     onChange={onChange}
                     required
                 />
@@ -32,7 +32,7 @@ const LoginPage = () => {
                     placeholder={"Senha"}
                     type={"password"}
                     name={"password"}
-                    value={formu.password}
+                    value={form.password}
                     onChange={onChange}
                     required
                 />
@@ -41,9 +41,9 @@ const LoginPage = () => {
                     <button type={"submit"}>Entrar</button>
                 </div>
 
-            </formu>
+            </form>
         </div>
     )
 }
 
-export default LoginPage
+export default Login

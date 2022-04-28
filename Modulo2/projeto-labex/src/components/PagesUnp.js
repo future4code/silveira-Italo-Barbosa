@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { goToAdminPage } from "../pipe/line"
+import { useLayoutEffect } from "react"
 
-export const PagesUnp = () => {
+const PagesUnp = () => {
     const Navigate = useNavigate()
 
     useLayoutEffect(() => {
@@ -12,3 +13,5 @@ export const PagesUnp = () => {
     }, [Navigate])
 
 }
+
+export default PagesUnp

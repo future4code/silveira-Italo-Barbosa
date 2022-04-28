@@ -3,8 +3,8 @@ import PagesPro from '../components/PagesPro'
 import { useNavigate } from 'react-router-dom'
 import { goToCriarViagens, goToHome } from '../pipe/line'
 import { logout } from '../components/encam'
-import requerData from '../components/requerData'
-import AdminTripCard from "../../components/AdminTripCard/AdminTripCard"
+import RequerData from '../components/Requer'
+import AdminC from "../components/AdminC"
 import styled from "styled-components"
 
 
@@ -20,6 +20,9 @@ const Admin = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 600px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
 `
 
 
@@ -27,15 +30,15 @@ const Admin = styled.div`
 const AdminPage = () => {
     PagesPro()
     const Navigate = useNavigate()
-    const [tripsData, getTrips] = requerData("/trips", {})
+    const [tripsData, getTrips] = RequerData("/trips", {})
 
     const tripsList = tripsData.trips && tripsData.trips.map((trip) => {
-        return <AdminTripCard key={trip.id} name={trip.name} id={trip.id} getTrips={getTrips} />
+        return <AdminC key={trip.id} name={trip.name} id={trip.id} getTrips={getTrips} />
     })
 
     return (
         <Admin>
-            <h1>Painel Administrativo</h1>
+            <h1>Administração</h1>
             <BTLayer3>
                 <button onClick={() => goToHome(Navigate)}>Voltar</button>
                 <button onClick={() => goToCriarViagens(Navigate)}>Criar Viagem</button>

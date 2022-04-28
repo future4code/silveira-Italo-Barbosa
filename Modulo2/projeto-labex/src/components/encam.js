@@ -2,33 +2,34 @@ import axios from "axios"
 import { goToAdminPage, goToLogin } from '../pipe/line'
 
 
-export const URL = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Italo-souza-silveira"
+export const URL = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/ItaloSouza-Silveira"
 
 
 export const login = (body, Navigate) => {
     axios.post(`${URL}/login`, body)
-        .then((response) => {
-            localStorage.setItem("token", response.data.token)
-            goToAdminPage(Navigate)
-        })
-        .catch((error) => alert(error.response.data.message))
-}
+         .then((response) => {
+              localStorage.setItem("token", response.data.token)
+              goToAdminPage(Navigate)
+                             })
+         .catch((error) => alert(error.response.data.message))
+         console.log("oi")
+                                         }
 
 export const logout = (Navigate) => {
-    localStorage.removeItem("token")
-    goToLogin(Navigate)
-}
+               localStorage.removeItem("token")
+             goToLogin(Navigate)
+                                    }
 
 export const encamA = (body, tripId, clear) => {
     axios.post(`${URL}/trips/${tripId}/apply`, body)
-        .then(() => {
+         .then(() => {
             alert("Enviado com sucesso")
             clear()
         })
-        .catch((error) => alert(error.response.message))
+         .catch((error) => alert(error.response.message))
 }
 
-export const criaV = (body, clear) => {
+export const CriarV = (body, clear) => {
     axios.post(`${URL}/trips`, body, {
         headers: {auth: localStorage.getItem("token")}
     })

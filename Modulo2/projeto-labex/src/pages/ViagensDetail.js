@@ -1,6 +1,6 @@
 import React from 'react'
 import PagesPro from '../components/PagesPro'
-import requerData from '../components/Requer'
+import RequerData from '../components/Requer'
 import { useNavigate, useParams } from "react-router-dom"
 import { goToAdminPage } from '../pipe/line'
 import CobaiaC from '../components/CobaiaC'
@@ -10,9 +10,11 @@ const ViagensDetail = () => {
     PagesPro()
     const Navigate = useNavigate()
     const { id } = useParams()
-    const [tripDetails, getTripDetails] = requerData(`/trip/${id}`)
+    const [tripDetails, getTripDetails] = RequerData(`/trip/${id}`)
+   
     const candidates = tripDetails && tripDetails.trip && tripDetails.trip.candidates.map((candidates) => {
         return <CobaiaC key={candidates.id} candidate={candidates} tripId={id} getTripDetails={getTripDetails} />
+    
     })
 
     const CandidatosAprovados = tripDetails && tripDetails.trip && tripDetails.trip.approved.map((candidates) => {
@@ -21,7 +23,7 @@ const ViagensDetail = () => {
 
     return (
         <div>
-
+        
             {tripDetails && tripDetails.trip && <h1>{tripDetails.trip.name}</h1>}
             {tripDetails && tripDetails.trip && <div>
                 <p><b>Nome:</b> {tripDetails.trip.name}</p>

@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom"
+
 
 
 export const goToHome = (Navigate) => {
@@ -9,22 +9,22 @@ export const goToViagens = (Navigate) => {
     Navigate("/Viagens")
 }
 
-export const goToApplicationFormPage = (Navigate) => {
-    Navigate("/trips/application")
+export const goToFormulario = (Navigate) => {
+    Navigate("/formulario")
 }
 
 export const goToLogin = (Navigate) => {
-    Navigate("/login")
+    Navigate("/Login")
 }
 
 export const goToAdminPage = (Navigate) => {
-    Navigate("/admin/trips/list")
+    Navigate("/AdminPage")
 }
 
-export const goToCreateTripPage = (Navigate) => {
-    Navigate("/admin/trips/create")
+export const goToCriarViagens = (Navigate) => {
+    Navigate("/CriarViagens")
 }
 
-export const goToViagemDetail = (Navigate, id) => {
-    Navigate(`/admin/trips/${id}`)
+export const goToViagensDetail = (Navigate, id) => {
+    Navigate(`/ViagensDetail/${id}`)
 }

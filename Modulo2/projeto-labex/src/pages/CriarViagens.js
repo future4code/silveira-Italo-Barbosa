@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToAdminPage } from '../pipe/line'
+import { goToAdminPage, goToFormulario } from '../pipe/line'
 import PagesPro from '../components/PagesPro'
-import useFormu from "../components/Requer"
+import {useForm} from "../components/Form"
 import { CriarV } from "../components/encam"
 import {Planetas} from "../components/Planetas"
 
@@ -10,11 +10,11 @@ import {Planetas} from "../components/Planetas"
 const CriarViagens = () => {
     PagesPro()
     const Navigate = useNavigate()
-    const { formu, onChange, clear } = useFormu({ name: "", planet: "", date: "", description: "", durationInDays: "" })
+    const { form, onChange, clear } = useForm({ name: "", planet: "", date: "", description: "", durationInDays: "" })
 
     const onClickCriar = (event) => {
         event.preventDefault()
-        CriarV(formu, clear)
+        CriarV(form, clear)
     }
 
     const today = new Date()
@@ -29,7 +29,7 @@ const CriarViagens = () => {
                 <input
                     placeholder={"Nome"}
                     name={"name"}
-                    value={formu.name}
+                    value={form.name}
                     onChange={onChange}
                     pattern={"^.{3,}$"}
                     title={"O nome da viagem tem que ter no mínimo 3 caracteres"}
@@ -51,7 +51,7 @@ const CriarViagens = () => {
                     placeholder={"Data"}
                     type={"date"}
                     name={"date"}
-                    value={formu.date}
+                    value={goToFormulario.date}
                     onChange={onChange}
                     required
                     min={stringToday}
@@ -59,7 +59,7 @@ const CriarViagens = () => {
                 <input
                     placeholder={"Descrição"}
                     name={"description"}
-                    value={formu.description}
+                    value={form.description}
                     onChange={onChange}
                     required
                     pattern={"^.{15,}$"}
@@ -69,7 +69,7 @@ const CriarViagens = () => {
                     placeholder={"Duração em dias"}
                     type={"number"}
                     name={"durationInDays"}
-                    value={formu.durationInDays}
+                    value={form.durationInDays}
                     onChange={onChange}
                     required
                     min={50}
