@@ -19,10 +19,12 @@ const Admin = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 600px;
+    width: 1366px;
+    height: 700px;
     margin: auto;
     text-align: center;
     align-items: center;
+    background-image: url(https://www.teslarati.com/wp-content/uploads/2020/12/Starship-SN8-launch-recap-120920-SpaceX-descent-8-c.jpg);
 `
 
 

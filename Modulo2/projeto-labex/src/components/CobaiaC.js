@@ -1,6 +1,9 @@
 import React from "react"
 import { escoCobaia } from '../components/encam'
 
+
+
+
 const CobaiaC = (props) => {
     const { id, applicationText, profession, age, name, nacoes } = props.candidate
 

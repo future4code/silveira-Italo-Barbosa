@@ -5,7 +5,20 @@ import PagesPro from '../components/PagesPro'
 import {useForm} from "../components/Form"
 import { CriarV } from "../components/encam"
 import {Planetas} from "../components/Planetas"
+import styled from "styled-components"
 
+
+const Criar = styled.div`
+
+margin: auto;
+text-align: center;
+align-items: center;
+
+background-image: url(https://spaceflightnow.com/wp-content/uploads/2022/01/DSC_5587.jpg);
+    height: 600px;
+    width: 1100px;
+
+`
 
 const CriarViagens = () => {
     PagesPro()
@@ -23,7 +36,7 @@ const CriarViagens = () => {
     + ("0" + today.getDate()).substr(-2)
 
     return (
-        <div>
+        <Criar>
             <h1>Criar Viagem</h1>
             <form onSubmit={onClickCriar}>
                 <input
@@ -79,7 +92,7 @@ const CriarViagens = () => {
                     <button type={"submit"}>Criar</button>
                 </div>
             </form>
-        </div>
+        </Criar>
     )
 }
 

@@ -12,6 +12,7 @@ const BTLayer = styled.div`
     justify-content: space-around;
     width: 400px;
     margin: 30px 0 20px 0;
+    background-color: none;
 `
 
 const Lista = styled.div`
@@ -19,7 +20,13 @@ const Lista = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    height: 675px;
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    background-image: url(https://images.newscientist.com/wp-content/uploads/2019/04/12100240/falcon.jpg);
+
 `
 
 

@@ -6,6 +6,24 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToViagens } from '../pipe/line'
 import { country } from '../components/nacoes';
+import styled from "styled-components"
+
+const Form = styled.div`
+
+margin: auto;
+text-align: center;
+align-items: center;
+
+background-color: whitesmoke;
+opacity: 0.8;
+
+
+`
+
+
+
+
+
 
 const Formulario = () => {
     const [tripId, setTripId] = useState("")
@@ -32,13 +50,14 @@ const Formulario = () => {
     })
 
     return (
-        <div>
+        <Form>
             <h1>Inscreva-se para Viajar</h1>
             <form onSubmit={onClickEnvia}>
                 <select defaultValue="" onChange={onChangeViagens}>
                     <option value="" disabled>Selecione uma Viagem</option>
                     {ViagensOpc}
                 </select>
+                <hr/>
                 <input
                     placeholder={"Nome"}
                     name={"name"}
@@ -48,6 +67,7 @@ const Formulario = () => {
                     title={"O nome deve ter no mínimo 3 caracteres"}
                     required
                 />
+                <hr/>
                 <input
                     placeholder={"Idade"}
                     type={"number"}
@@ -75,6 +95,7 @@ const Formulario = () => {
                     pattern={"^.{5,}$"}
                     title={"A profissão deve ter no mínimo 5 caracteres"}
                 />
+                <hr/>
                 <select
                     placeholder={"País"}
                     name={"country"}
@@ -92,7 +113,7 @@ const Formulario = () => {
                     <button type={"submit"}>Enviar</button>
                 </div>
             </form>
-        </div>
+        </Form>
     )
 }
 

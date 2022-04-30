@@ -6,6 +6,19 @@ import styled from "styled-components"
 
 const BTLayer4 = styled.div`
        padding: 10px;
+
+       &:hover{
+           background-color: aliceblue;
+           transform: scale(1.5);
+           cursor: pointer; 
+        
+       }
+       &:hover:after {    
+           
+            content: "Delete";
+           font-size: 15px;
+     }
+
     
 `
 const Layer = styled.div`
@@ -17,6 +30,14 @@ const Layer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 500px;
+    opacity: 1;
+    
+
+    &:hover{
+
+        background-color: aqua;
+         cursor: pointer;
+    }
     
 `
 
@@ -34,7 +55,7 @@ const AdminC = (props) => {
     return (
         <Layer onClick={() => goToViagensDetail(Navigate, id)}>
             <p>{name}</p>
-            <BTLayer4 onClick={onClickApaga}/>
+            <BTLayer4 onClick={onClickApaga}>X</BTLayer4>
         </Layer>
     )
 }

@@ -26,5 +26,5 @@ export const goToCriarViagens = (Navigate) => {
 }
 
 export const goToViagensDetail = (Navigate, id) => {
-    Navigate(`/ViagensDetail/${id}`)
+    Navigate(`/admin/trips/${id}`)
 }
