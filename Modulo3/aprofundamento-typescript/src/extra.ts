@@ -1,0 +1,1 @@
+// a: O modulo de resolução e Map, aparentemente tem muita utilidade.
