@@ -1,15 +1,16 @@
 {
-  "name": "template-aula44",
+  "name": "apis-rest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "build": "tsc",
+    "start-dev": "npx ts-node-dev ./src/index.ts",
     "dev": "ts-node-dev ./src/index.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Italo",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
