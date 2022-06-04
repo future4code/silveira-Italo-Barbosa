@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "start2": "cs ./src/console.cs",
+    "start2": "./src/Program.cs",
     "build": "tsc",
     "dev": "ts-node-dev ./src/index.ts"
   },

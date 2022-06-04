@@ -1,6 +1,6 @@
 import express, { Request, Response, Express } from 'express'
 import cors from 'cors'
-import { users } from './dados'
+import { users, saldo, Reg, soldo } from './dados'
 
 
 const app: Express = express()
@@ -74,3 +74,47 @@ response.status(200).send(users)
   }
 
 })
+
+app.get("/balance", (request:Request, response:Response)=>{
+   
+  try {
+    const name = request.params.name as string
+    const cpf = request.params.cpf as string
+
+    let balance = users.filter((name, cpf)=>{
+      if(users.name === name && users.cpf === cpf){
+        return users.state
+      }
+    })
+    response.status(200).send(users)
+    }
+  
+   catch (error) {
+    response.status(400).send("Usuario não encontrado!")
+  }
+
+
+
+})
+
+
+app.put("/saldo", (request:Request, response:Response)=>{
+
+
+  try {
+    const name = request.params.name as string
+    const cpf = request.params.cpf as string
+    const value = Number(request.params.value)
+
+    if(name === users.name && cpf === users.cpf){
+      users.state.push(value)
+      response.status(201).send(users.state)
+    }
+    
+  } catch (error) {
+    response.status(400).send("error inesperado")
+  }
+
+})
+
+
