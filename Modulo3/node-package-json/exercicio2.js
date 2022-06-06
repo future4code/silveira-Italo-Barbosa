@@ -1,1 +1,0 @@
-"Não conseguir pensar bem"
