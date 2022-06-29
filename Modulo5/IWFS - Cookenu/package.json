@@ -1,5 +1,5 @@
 {
-  "name": "aula-back-arquitetura",
+  "name": "cookenu",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "ts-node-dev ./src/index.ts",
     "build": "tsc"
   },
-  "author": "",
+  "author": "Italo",
   "license": "ISC",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
