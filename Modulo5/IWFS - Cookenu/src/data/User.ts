@@ -9,7 +9,8 @@ export class User {
         private name:string,
         private email: string,
         private password: string,
-        private role: user_roles
+        private role: user_roles,
+        private token: string,
     ){}
         public getId(){
             return this.id
@@ -26,11 +27,14 @@ export class User {
         public getRole(){
             return this.role
         }
+        public getToken(){
+            return this.token
+        }
         
         
     
 
     static toUser(data:any):User{
-        return new User(data.id, data.name, data.email, data.password, data.role)
+        return new User(data.id, data.name, data.email, data.password, data.role, data.token)
     }
 }

@@ -29,6 +29,7 @@ export class UserDatabase extends BaseDatabase{
            email: user.getEmail,
            password: user.getPassword,
            role: user.getRole,
+           token: user.getToken
            
          })
          .into(Table);
@@ -36,6 +37,52 @@ export class UserDatabase extends BaseDatabase{
          throw new Error(error.sqlMessage || error.message)
         } 
      }; 
+
+     public async findUserToken(token:string):Promise<User>{
+
+        try {
+            const Us = await BaseDatabase.connection("User")
+            .select("*")
+            .where({token})
+
+            return User.toUser(Us[0])
+            
+        } catch (error:any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+
+    public async login(email:string, password:string):Promise<User>{
+
+        try {
+            const Us = await BaseDatabase.connection("User")
+            .select("*")
+            .where({email,password})
+
+            return User.toUser(Us[0])
+            
+        } catch (error:any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+
+
+    public async findUserId(id:string):Promise<User>{
+
+        try {
+            const Us = await BaseDatabase.connection("User")
+            .select("*")
+            .where({id})
+
+            return User.toUser(Us[0])
+            
+        } catch (error:any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
 
 
 

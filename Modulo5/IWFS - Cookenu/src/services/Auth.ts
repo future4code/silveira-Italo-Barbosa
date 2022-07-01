@@ -1,7 +1,11 @@
 import * as jwt from "jsonwebtoken";
 
 
-export const getData = (token: string): Authentication => {
+
+const expiresIn = "10h";
+export default class Authenticator {
+  
+  getData = (token: string): Authentication => {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
     const result = {
       id: payload.id,
@@ -10,8 +14,8 @@ export const getData = (token: string): Authentication => {
     return result;
   }
 
-  const expiresIn = "2h";
-  export const generateToken = (input: Authentication): string => {
+  
+    generateToken = (input: Authentication): string => {
     const token = jwt.sign(
       {
         id: input.id,
@@ -25,7 +29,7 @@ export const getData = (token: string): Authentication => {
     return token;
   }
 
-
+}
 
 
 type Authentication = {
