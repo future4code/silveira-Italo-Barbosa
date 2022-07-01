@@ -1,16 +1,16 @@
 import { BaseDatabase } from "./BaseDatabase";
 import { User } from "./User";
 
-
+export const Table = "User";
 export class UserDatabase extends BaseDatabase{
 
 
-    public async findUser(id:string):Promise<User>{
+    public async findUser(email:string):Promise<User>{
 
         try {
             const Us = await BaseDatabase.connection("User")
             .select("*")
-            .where({id})
+            .where({email})
 
             return User.toUser(Us[0])
             
@@ -19,14 +19,17 @@ export class UserDatabase extends BaseDatabase{
         }
     }
 
-    public async creatUser(name: string, email: string, password: string):Promise<void> {
+    public async creatUser(user:User){
         try {
  
          await BaseDatabase.connection("User")
          .insert({
-           name,
-           email,
-           password,
+           id: user.getName,
+           name: user.getName,
+           email: user.getEmail,
+           password: user.getPassword,
+           role: user.getRole,
+           
          })
          .into(Table);
         } catch (error:any) {
