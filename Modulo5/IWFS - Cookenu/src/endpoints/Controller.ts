@@ -104,7 +104,7 @@ async getUs(request:Request, response:Response):Promise<void> {
 
     try {
 
-      const token = String(request.header)
+      const token = String (request.header)
       const userdatabase = new UserDatabase
       const compare = userdatabase.findUserToken(token)
  
