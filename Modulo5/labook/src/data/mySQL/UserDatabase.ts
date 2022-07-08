@@ -23,6 +23,22 @@ export class UserDatabase extends BaseDatabase{
    
    }
 
+   public captUserEmail = async(
+      email: string
+   ): Promise<string> => {
+      try {
+        const result = await UserDatabase.connection
+        .select("*")
+        .from(UserDatabase.table_name)
+        .where({email})
+
+        return result[0] && User.toUser(result[0])
+         
+      } catch (error:any) {
+         throw new Error(error.message)
+      }
+   
+   }
 
 }
 
