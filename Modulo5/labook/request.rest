@@ -1,8 +1,18 @@
-POST http://localhost:3003/user/create 
+POST http://localhost:3005/signUp
 Content-Type: application/json 
 
 {
+"name": "Italo",
+"email": "tamtamtam@hotmail.com",
+"password": "1234567"
     
+},
+
+
+POST http://localhost:3005/login
+Content-Type: application/json
+
+{
+    "email": "tamtamtam@hotmail.com",
+    "password": "1234567"
 }
-
-

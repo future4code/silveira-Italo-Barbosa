@@ -17,15 +17,19 @@ export class UserDatabase extends BaseDatabase{
             password: user.getPassword
          }).into(UserDatabase.table_name)
          
-      } catch (error:any) {
-         throw new Error(error.message)
+      } catch (error) {
+         if(error instanceof Error ){
+            throw new Error(error.message)
+          }else{
+            throw new Error("erro desconhecido")
+          }
       }
    
    }
 
    public captUserEmail = async(
       email: string
-   ): Promise<string> => {
+   ): Promise<any> => {
       try {
         const result = await UserDatabase.connection
         .select("*")
@@ -34,8 +38,12 @@ export class UserDatabase extends BaseDatabase{
 
         return result[0] && User.toUser(result[0])
          
-      } catch (error:any) {
-         throw new Error(error.message)
+      } catch (error) {
+         if(error instanceof Error ){
+            throw new Error(error.message)
+          }else{
+            throw new Error("erro desconhecido")
+          }
       }
    
    }

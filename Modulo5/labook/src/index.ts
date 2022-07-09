@@ -35,7 +35,7 @@ app.post("/login", usercontroller.login)
 
 
 app.post("/post/create", postcontroller.createPost)
-app.get("/post/id", postcontroller.getPostId)
+app.get("/post/id", postcontroller.getPost)
 
 
 

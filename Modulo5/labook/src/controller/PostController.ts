@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { PostBusiness } from "../business/PostBusiness";
-import { UserBusiness } from "../business/UserBusiness";
-import { PostInputDTO } from "../types/postInputDTO";
+import { PostType } from "../model/PostType";
 
 export class PostController {
 
@@ -9,49 +8,52 @@ export class PostController {
         private postBusiness: PostBusiness
     ) { }
     
-    createPost = async (req: Request, res: Response) => {
+    createPost = async (request: Request, response: Response) => {
         try {
 
-            const token = req.headers.authorization as string
-            const { foto, descricao, data_criacao, tipo } = req.body
+            const token = request.headers.authorization as string
+            const { photo, description, creation_date, type } = request.body
 
-            const post: PostInputDTO = {
-                foto,
-                descricao,
-                data_criacao,
-                tipo,
+            const post: PostType = {
+                photo,
+                description,
+                creation_date,
+                type,
                 token
             }
 
             const newPost = await this.postBusiness.createPost(post)
 
-            res.status(201).send({ message: "Post criado com sucesso", newPost})
+            response.status(201).send({ message: "sucessfully posted", newPost})
             
-        } catch (error: any) {
-            if (res.statusCode === 200) {
-                res.status(500).send({ message: error.message })
-            } else {
-                res.status(res.statusCode).send({ message: error.sqlMessage || error.message })
-            }
+        } catch (error) {
+            
+            if(error instanceof Error ){
+                throw new Error(error.message)
+              }else{
+                throw new Error("erro desconhecido")
+              }
+            
         }
     }
 
-    getPostId = async (req: Request, res: Response) => {
+    getPost = async (request: Request, response: Response) => {
         try {
 
-            const token = req.headers.authorization as string
-            const postId = req.params.id
+            const token = request.headers.authorization as string
+            const postId = request.params.id
 
-            const post = await this.postBusiness.getPostById(postId, token)
+            const post = await this.postBusiness.getPostId(postId, token)
 
-            res.status(200).send({ post })
+            response.status(200).send({ post })
             
-        } catch (error: any) {
-            if (res.statusCode === 200) {
-                res.status(500).send({ message: error.message })
-            } else {
-                res.status(res.statusCode).send({ message: error.sqlMessage || error.message })
-            }
+        } catch (error) {
+            if(error instanceof Error ){
+                throw new Error(error.message)
+              }else{
+                throw new Error("erro desconhecido")
+              }
+            
         }
     }
 }

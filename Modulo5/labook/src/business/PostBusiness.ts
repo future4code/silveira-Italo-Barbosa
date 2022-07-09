@@ -32,7 +32,7 @@ export class PostBusiness {
                 throw new Error("one of the fields is empty")
             }
 
-            if (type !== POST_Type.COMUM && type !== POST_Type.EVENT) {
+            if (type !== POST_Type.COMMON && type !== POST_Type.EVENT) {
                 throw new Error("the type of event is not acceptable, common or event saccepted.")
             }
 
@@ -55,8 +55,12 @@ export class PostBusiness {
 
             return newPost
             
-        } catch (error: any) {
-            throw new Error(error.sqlMessage || error.message)
+        } catch (error) {
+            if(error instanceof Error ){
+                throw new Error(error.message)
+              }else{
+                throw new Error("erro desconhecido")
+              }
         }
     }
 
@@ -85,8 +89,12 @@ export class PostBusiness {
 
             return post
             
-        } catch (error: any) {
-            throw new Error(error.sqlMessage || error.message) 
+        } catch (error) {
+            if(error instanceof Error ){
+                throw new Error(error.message)
+              }else{
+                throw new Error("erro desconhecido")
+              } 
         }
     }
 }

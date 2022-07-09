@@ -49,8 +49,12 @@ export class UserBusiness {
       await this.userDatabase.signUp(users);
       return token
 
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error) {
+      if(error instanceof Error ){
+        throw new Error(error.message)
+      }else{
+        throw new Error("erro desconhecido")
+      }
     }
   };
 
@@ -79,8 +83,12 @@ export class UserBusiness {
 
      return token
 
-    } catch (error:any) {
-      throw new Error(error.message);
+    } catch (error) {
+      if(error instanceof Error ){
+        throw new Error(error.message)
+      }else{
+        throw new Error("erro desconhecido")
+      }
     }
   }
 }

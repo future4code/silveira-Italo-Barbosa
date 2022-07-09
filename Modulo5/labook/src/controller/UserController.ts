@@ -24,8 +24,12 @@ export class UserController {
       const token = await this.userBusiness.signUp(newuser);
 
       response.status(201).send({ message: "Usuário cadastrado!", token });
-    } catch (error: any) {
-      response.status(400).send(error.message);
+    } catch (error) {
+      if(error instanceof Error ){
+        throw new Error(error.message)
+      }else{
+        throw new Error("erro desconhecido")
+      }
     }
   };
 
@@ -43,8 +47,12 @@ export class UserController {
 
         response.status(200).send(token)
 
-      } catch (error:any) {
-        response.status(400).send(error.message);
+      } catch (error) {
+        if(error instanceof Error ){
+          throw new Error(error.message)
+        }else{
+          throw new Error("erro desconhecido")
+        }
       }
 
   }
