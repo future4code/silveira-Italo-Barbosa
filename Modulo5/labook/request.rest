@@ -1,13 +1,14 @@
-POST http://localhost:3005/signUp
-Content-Type: application/json 
+POST http://localhost:3005/signup
+Content-Type: application/json
 
 {
-"name": "Italo",
+"name": "italo",
 "email": "tamtamtam@hotmail.com",
-"password": "1234567"
+"password": "12345678"
     
 },
 
+####
 
 POST http://localhost:3005/login
 Content-Type: application/json
@@ -16,3 +17,17 @@ Content-Type: application/json
     "email": "tamtamtam@hotmail.com",
     "password": "1234567"
 }
+
+###
+
+POST http://localhost:3005/post/create
+Authorization: {header.token}
+
+{
+    "photo": "https://i.pinimg.com/originals/14/f5/fa/14f5fabc101510fa542a419f8c128b29.jpg",
+    "description": "seilá",
+    "creation_date": "2222-06-12",
+    "type": "COMMON"
+    
+}
+
