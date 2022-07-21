@@ -2,22 +2,25 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL} from "../constants/url";
 import GlobalStateContext from "./GlobalStateContext";
+import {useParams} from "react-router-dom"
 
 const GlobalState = (props) => {
   const [popular, setPopular] = useState([]);
   const [tv, setTv] = useState([]);
   const [tokenV, setTokenV] = useState([])
   const [genres, setGenres] = useState([{}])
-  
+  const [movieDetail, setMovieDetail] = useState({})
 
  const request_token = localStorage.getItem("requesttoken")
+ const params = useParams()
+ const { id } = useParams()
 
   useEffect(() => {
     getPopular()
     getTv()
     getTokenV()
-    getGenres([{}])
-  
+    getGenres()
+    getMovieDetail()
   },[]);
 
 
@@ -50,6 +53,16 @@ const GlobalState = (props) => {
       
   };
 
+  const getMovieDetail = () => {
+    axios.get(`${BASE_URL}/movie/${params.              id}?api_key=6a875427d321339817527aa3cafc6948&${request_token}, Headers`,)
+    .then((response) => {
+      console.log(data.results)
+        setMovieDetail(response.data.results)
+    }).catch((error) => {
+        console.log(error.data)
+    })
+}
+
   const getGenres = () => {
     axios.get(`${BASE_URL}/genre/movie/list?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
       .then((response) => {
@@ -67,6 +80,7 @@ const GlobalState = (props) => {
   const data = {
     popular,
     tv,
+    movieDetail,
     genres,
     getPopular,
     setPopular,
@@ -74,6 +88,8 @@ const GlobalState = (props) => {
     setTv,
     getGenres,
     setGenres,
+    getMovieDetail,
+    setMovieDetail,
     request_token,
     tokenV,
     

@@ -1,10 +1,14 @@
 import React from "react";
+import {MovieCard} from "../components/MovieCard"
+
+
+
 
 export const Movie = ({movie}) => {
     return (
-      <div>
+      <button class={MovieCard}>
         <h5>{movie.title}</h5>
-        <img src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path} alt={movie.path} />
-      </div>
+        <img src={"https://image.tmdb.org/t/p/w300" + movie.backdrop_path} alt={movie.path} />
+      </button>
     );
   };

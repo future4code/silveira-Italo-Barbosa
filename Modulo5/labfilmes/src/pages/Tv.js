@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import GlobalStateContext from '../global/GlobalStateContext';
 import {TV} from '../components/tv';
-
+import ScrollableTabsButtonAuto, {ExCard} from "../components/TableCard"
 
 
 const Tv = () => {
@@ -16,6 +16,7 @@ return(
     <>
       <div>
         <h1>TV</h1>
+        <ScrollableTabsButtonAuto/>
         <div>
           {Tv}
           

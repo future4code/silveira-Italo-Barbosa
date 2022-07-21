@@ -3,7 +3,7 @@ import GlobalStateContext from '../global/GlobalStateContext';
 import {Movie} from '../components/movies';
 import {goToTv} from "../routes/coordinator"
 import { useNavigate } from 'react-router-dom';
-
+import ScrollableTabsButtonAuto, {ExCard} from "../components/TableCard"
 
 
 
@@ -16,7 +16,7 @@ const Home = () => {
 
   
   
-  const [value, setValue] = React.useState(0);
+  
 
   const {popular} = useContext(GlobalStateContext);
   const {tokenV} = useContext(GlobalStateContext)
@@ -37,9 +37,7 @@ const Home = () => {
     } 
   } 
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+ 
 
   const onClickCard = () => {
     goToTv(Navigate);
@@ -63,14 +61,14 @@ const listGenres = genres && genres.map((genres) =>{
     return(
       <>
         <div>
-          
-        <button onClick={()=>genresFilter("Action")} onChange={handleChange}><h5>Action</h5></button>
-        <div>{listGenres}</div>
+          <ScrollableTabsButtonAuto/>
+        <button onClick={()=>genresFilter("Action")}><h5>Action</h5></button>
+        <button>{listGenres}</button>
           <h1>Movies</h1>
-          <div>
+          <ExCard>
             {list}
             {tokenV}
-          </div>
+          </ExCard>
           <button onClick={()=> onClickCard(goToTv)}><h5>TV</h5></button>
         </div>
       </>
