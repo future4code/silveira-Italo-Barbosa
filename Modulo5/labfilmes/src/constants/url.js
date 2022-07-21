@@ -1,3 +1,3 @@
 export const BASE_URL = "https://api.themoviedb.org/3"
 
-export const token = "6a875427d321339817527aa3cafc6948"
+export const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTg3NTQyN2QzMjEzMzk4MTc1MjdhYTNjYWZjNjk0OCIsInN1YiI6IjYyZDZlZWI0NDk4ZWY5MDA1NWEyODdlNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.avaiECJxmmP7-lAVut8_BfBLp1sh4PGhgEHGv7XLqOs"
