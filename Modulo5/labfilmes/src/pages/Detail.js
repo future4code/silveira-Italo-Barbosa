@@ -1,15 +1,21 @@
 import React, {useContext} from 'react';
-import { GlobalStateContext } from '../Context/GlobalStateContext';
+import { DETAIL } from '../components/detail';
+import  GlobalStateContext  from '../global/GlobalStateContext';
 
 export default function Detail () {
 const { movieDetail } = useContext(GlobalStateContext);
 
+const list = movieDetail && movieDetail.map((movie) => {
+    return (<div><DETAIL
+      key={movie.id}
+      movie={movie}/>
+    </div>)
+  })
 
 return (
-<div>
-    <h1>{movieDetail.title}</h1>
-    <h4>{movieDetail.release_date}</h4>
-    </div>
+ <div>
+ {list}
+ </div>
+ 
 )
-
 }

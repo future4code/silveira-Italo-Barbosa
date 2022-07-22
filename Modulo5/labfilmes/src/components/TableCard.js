@@ -14,6 +14,7 @@ display: grid;
         height: 100%;
         justify-content: center;
         margin: 0;
+        align-items: center;
 `
 
 export default function ScrollableTabsButtonAuto() {

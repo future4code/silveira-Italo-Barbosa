@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovieCard = styled.div`
+export const TvCard = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid #82828280;
@@ -13,7 +13,4 @@ export const MovieCard = styled.div`
         box-shadow: rgba(100, 100, 111, 0.2) 2px 10px 10px 2px;
         transform: translateY(-10px) scale(1);
     }
-    
     `
-
-    

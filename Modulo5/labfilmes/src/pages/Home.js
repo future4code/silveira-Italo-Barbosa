@@ -1,78 +1,84 @@
 import React, { useContext } from 'react';
 import GlobalStateContext from '../global/GlobalStateContext';
-import {Movie} from '../components/movies';
-import {goToTv} from "../routes/coordinator"
-import { useNavigate } from 'react-router-dom';
-import ScrollableTabsButtonAuto, {ExCard} from "../components/TableCard"
+import { Movie } from '../components/movies';
+import ScrollableTabsButtonAuto, { ExCard } from "../components/TableCard"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import blue from '@mui/material/colors/blue';
+import grey from '@mui/material/colors/grey';
 
 
 
-    
+
 
 
 
 
 const Home = () => {
 
-  
-  
-  
 
-  const {popular} = useContext(GlobalStateContext);
-  const {tokenV} = useContext(GlobalStateContext)
-  const {genres} = useContext(GlobalStateContext)
-  const {setGenres} = useContext(GlobalStateContext)
+
+
+
+  const { popular } = useContext(GlobalStateContext);
+  const { tokenV } = useContext(GlobalStateContext)
+  const { genres } = useContext(GlobalStateContext)
+  const { setGenres } = useContext(GlobalStateContext)
+
+
+
  
-  
-
-  const Navigate = useNavigate()
 
 
-  const genresFilter = ( name ) => { 
-    if( name === genres.name) { 
-        setGenres({})
+  const genresFilter = (name) => {
+    if (name === genres.name) {
+      setGenres({})
     }
-    else{
-        setGenres(name)
-    } 
-  } 
+    else {
+      setGenres(name)
+    }
+  }
 
- 
-
-  const onClickCard = () => {
-    goToTv(Navigate);
-};
-
-const list = popular && popular.map((movie) => {
-  return (<div><Movie 
-    key={movie.id} 
-    movie={movie}/></div>)})
-
-const listGenres = genres && genres.map((genres) =>{
-  return (<div>
-    genresId={genres.ids}
-    genresName={genres.name}
- 
-  </div>)
-})
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[500],
+      },
+      secondary: {
+        main: grey[500],
+      },
+    },
+  });
 
 
+  const list = popular && popular.map((movie) => {
+    return (<div><Movie
+      key={movie.id}
+      movie={movie}/>
+    </div>)
+  })
 
-    return(
-      <>
-        <div>
-          <ScrollableTabsButtonAuto/>
-        <button onClick={()=>genresFilter("Action")}><h5>Action</h5></button>
-        <button>{listGenres}</button>
-          <h1>Movies</h1>
-          <ExCard>
-            {list}
-            {tokenV}
-          </ExCard>
-          <button onClick={()=> onClickCard(goToTv)}><h5>TV</h5></button>
-        </div>
-      </>
-    )
+  const listGenres = genres && genres.map((genres) => {
+    return (<div>
+      genresId={genres.ids}
+      genresName={genres.name}
+    </div>)
+  })
+
+
+
+  return (
+    <ThemeProvider theme={theme}>
+      <div>
+        <h1>Movies</h1>
+        <ScrollableTabsButtonAuto />
+          {listGenres} 
+        <ExCard>
+          {list}
+          {tokenV}
+        </ExCard>
+      </div>
+    </ThemeProvider>
+  )
 }
 
 export default Home

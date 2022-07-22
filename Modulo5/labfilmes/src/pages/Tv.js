@@ -17,10 +17,10 @@ return(
       <div>
         <h1>TV</h1>
         <ScrollableTabsButtonAuto/>
-        <div>
+        <ExCard>
           {Tv}
           
-        </div>
+        </ExCard>
 
       </div>
     </>
