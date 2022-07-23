@@ -1,8 +1,8 @@
-import React from "react";
-import {MovieCard} from "../components/MovieCard"
+import React, { useContext } from 'react';
+import GlobalStateContext from '../global/GlobalStateContext';
 import { useNavigate } from 'react-router-dom';
 import { goToDetail } from "../routes/coordinator";
-
+import {MovieCard, H2, P} from "../components/MovieCard"
 
 
 
@@ -10,21 +10,24 @@ import { goToDetail } from "../routes/coordinator";
 
 export const Movie = ({movie}) => {
   
+  const { movieId, setMovieId } = useContext(GlobalStateContext)
+  
   const Navigate = useNavigate()
  
 
   const onClickCard = (id) => {
-    goToDetail(Navigate, id);
-};
+    setMovieId(id);
+    goToDetail(Navigate, `/Detail`)
+}
 
 
 
 
     return (
-      <button className="MovieCard" onClick={()=> onClickCard(movie.id)}>
-        <h5>{movie.title}</h5>
-        <>{movie.id}</>
+      <MovieCard onClick={()=> onClickCard(movie.id)}>
+        <H2>{movie.title}</H2>
         <img src={"https://image.tmdb.org/t/p/w300" + movie.backdrop_path} alt={movie.path} />
-      </button>
+        <P>{movie.release_date}</P>
+      </MovieCard>
     );
   };

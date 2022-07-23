@@ -9,12 +9,14 @@ import { useNavigate } from 'react-router-dom';
 
 export const ExCard = styled.div`
 display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 70%;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
         height: 100%;
         justify-content: center;
         margin: 0;
         align-items: center;
+        color: none;
+        background-color: none;
 `
 
 export default function ScrollableTabsButtonAuto() {

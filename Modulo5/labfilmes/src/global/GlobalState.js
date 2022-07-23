@@ -8,19 +8,25 @@ const GlobalState = (props) => {
   const [popular, setPopular] = useState([]);
   const [tv, setTv] = useState([]);
   const [tokenV, setTokenV] = useState([])
-  const [genres, setGenres] = useState([{}])
-  const [movieDetail, setMovieDetail] = useState({})
+  const [genres, setGenres] = useState([])
+  const [genreId, setGenreId] = useState([])
+  const [ movie, setMovie ] = useState([])
+  const [movieId, setMovieId] = useState(0)
+  const [movieDetail, setMovieDetail] = useState(0)
+  const [ page, setPage ] = useState(1)
 
   const request_token = localStorage.getItem("requesttoken")
- 
 
   useEffect(() => {
-    getPopular()
+    getMovieId();
+  }, [movieId])
+  useEffect(() => {
+    getPopular(page)
     getTv()
     getTokenV()
     getGenres()
-    getMovieDetail()
-  }, []);
+    // getMovieDetail()
+  }, [page, genreId, movieDetail]);
 
 
 
@@ -32,8 +38,8 @@ const GlobalState = (props) => {
       .catch((error) => console.log(error.message))
 
   }
-  const getPopular = () => {
-    axios.get(`${BASE_URL}/movie/popular?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
+  const getPopular = (page) => {
+    axios.get(`${BASE_URL}/movie/popular?api_key=6a875427d321339817527aa3cafc6948&${request_token}&page=${page}`, Headers)
       .then((response) => {
         setPopular(response.data.results)
       })
@@ -50,21 +56,29 @@ const GlobalState = (props) => {
 
   };
 
-  const getMovieDetail = () => {
-    axios.get(`${BASE_URL}/movie/718789?api_key=6a875427d321339817527aa3cafc6948&${request_token}, Headers`,)
+ /* const getMovieDetail = () => {
+    axios.get(`${BASE_URL}/movie/${movieId}?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
       .then((response) => {
-        console.log(data.results)
         setMovieDetail(response.data.results)
       }).catch((error) => {
         console.log(error.data)
       })
-  }
+  }*/
+
+  const getMovieId = () => {
+    axios.get(`${BASE_URL}/movie/${movieId}?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
+    .then(response => {
+        setMovie(response.data);
+    })
+    .catch(error => {
+        console.log(error.message);
+    });
+   };
 
   const getGenres = () => {
     axios.get(`${BASE_URL}/genre/movie/list?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
       .then((response) => {
-        setGenres(response.data.results)
-        console.log(response.data)
+        setGenres(response.data.genres)
       })
       .catch((error) => console.log(error.message))
 
@@ -76,8 +90,12 @@ const GlobalState = (props) => {
 
   const data = {
     popular,
+    genreId,
+    page,
     tv,
+    movieId,
     movieDetail,
+    movie,
     genres,
     getPopular,
     setPopular,
@@ -85,8 +103,12 @@ const GlobalState = (props) => {
     setTv,
     getGenres,
     setGenres,
-    getMovieDetail,
+    // getMovieDetail,
     setMovieDetail,
+    getMovieId,
+    setMovieId,
+    setGenreId,
+    setPage,
     request_token,
     tokenV,
 

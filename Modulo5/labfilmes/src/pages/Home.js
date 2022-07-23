@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import GlobalStateContext from '../global/GlobalStateContext';
 import { Movie } from '../components/movies';
 import ScrollableTabsButtonAuto, { ExCard } from "../components/TableCard"
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import blue from '@mui/material/colors/blue';
-import grey from '@mui/material/colors/grey';
+import { Page } from '../components/page';
+import { PCard} from '../Styled/PCard';
+import { Genrer } from '../components/genres';
+import { Headers, Title } from '../Styled/Headers';
 
 
 
@@ -21,63 +22,59 @@ const Home = () => {
 
   const { popular } = useContext(GlobalStateContext);
   const { tokenV } = useContext(GlobalStateContext)
-  const { genres } = useContext(GlobalStateContext)
-  const { setGenres } = useContext(GlobalStateContext)
+  const { genreId } = useContext(GlobalStateContext)
+  
+  
+
+
+
+
 
 
 
  
 
+  
 
-  const genresFilter = (name) => {
-    if (name === genres.name) {
-      setGenres({})
+  const list = popular && popular.filter((movie) => {
+    if (genreId.length == 0) {
+      return movie
     }
     else {
-      setGenres(name)
+      for (let n = 0; n < genreId.length; n++) {
+        for (let i = 0; i < movie.genre_ids.length; i++) {
+          if (genreId[n] === movie.genre_ids[i]) {
+            return movie
+          }
+        }
+      }
     }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: blue[500],
-      },
-      secondary: {
-        main: grey[500],
-      },
-    },
-  });
-
-
-  const list = popular && popular.map((movie) => {
-    return (<div><Movie
-      key={movie.id}
-      movie={movie}/>
-    </div>)
+  }).map(movie => {
+    return (
+      <div key={movie.id}>
+        <Movie movie={movie} />
+      </div>
+    )
   })
 
-  const listGenres = genres && genres.map((genres) => {
-    return (<div>
-      genresId={genres.ids}
-      genresName={genres.name}
-    </div>)
-  })
+
 
 
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <h1>Movies</h1>
-        <ScrollableTabsButtonAuto />
-          {listGenres} 
+    <div>
+      <Headers>
+        <Title><h1>LabFilmes</h1></Title>
+        <ScrollableTabsButtonAuto /> <Genrer />
+      </Headers>
+      <PCard>
         <ExCard>
-          {list}
+        {list}
           {tokenV}
         </ExCard>
-      </div>
-    </ThemeProvider>
+        <Page/>
+      </PCard>
+    </div>
   )
 }
 

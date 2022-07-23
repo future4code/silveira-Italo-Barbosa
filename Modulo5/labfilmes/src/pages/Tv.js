@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import GlobalStateContext from '../global/GlobalStateContext';
 import {TV} from '../components/tv';
 import ScrollableTabsButtonAuto, {ExCard} from "../components/TableCard"
+import { PCard } from '../Styled/PCard';
 
 
 const Tv = () => {
@@ -14,15 +15,13 @@ const {tv} = useContext(GlobalStateContext)
 
 return(
     <>
-      <div>
+      <PCard>
         <h1>TV</h1>
         <ScrollableTabsButtonAuto/>
         <ExCard>
           {Tv}
-          
         </ExCard>
-
-      </div>
+      </PCard>
     </>
   )
 }
