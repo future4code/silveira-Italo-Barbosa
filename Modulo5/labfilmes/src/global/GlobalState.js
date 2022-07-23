@@ -14,7 +14,7 @@ const GlobalState = (props) => {
   const [movieId, setMovieId] = useState(0)
   const [movieDetail, setMovieDetail] = useState(0)
   const [ page, setPage ] = useState(1)
-
+  const [review, setReview] = useState()
   const request_token = localStorage.getItem("requesttoken")
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const GlobalState = (props) => {
     getTv()
     getTokenV()
     getGenres()
+    getReviews()
     // getMovieDetail()
   }, [page, genreId, movieDetail]);
 
@@ -75,6 +76,16 @@ const GlobalState = (props) => {
     });
    };
 
+   const getReviews = () => {
+    axios.get(`${BASE_URL}/movie/${movieId}/reviews?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
+    .then(response => {
+        setReview(response.data.results);
+    })
+    .catch(error => {
+        console.log(error.message);
+    });
+   };
+
   const getGenres = () => {
     axios.get(`${BASE_URL}/genre/movie/list?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
       .then((response) => {
@@ -93,6 +104,7 @@ const GlobalState = (props) => {
     genreId,
     page,
     tv,
+    review,
     movieId,
     movieDetail,
     movie,
@@ -107,6 +119,8 @@ const GlobalState = (props) => {
     setMovieDetail,
     getMovieId,
     setMovieId,
+    getReviews,
+    setReview,
     setGenreId,
     setPage,
     request_token,

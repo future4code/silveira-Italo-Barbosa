@@ -4,7 +4,7 @@ import { PCard } from '../Styled/PCard';
 
 export default function Detail() {
   const { movie } = useContext(GlobalStateContext);
-  
+  const {review} = useContext(GlobalStateContext)
   const converter = (minutos) => {
     const horas = Math.floor(minutos/ 60);          
     const min = minutos % 60;
@@ -24,6 +24,7 @@ export default function Detail() {
       <p>time: {time}</p>
       <h5>Sinopse</h5>
       <p>{movie.overview}</p>
+      <p>{review}</p>
     </PCard>
   )
 

@@ -6,7 +6,7 @@ export const Headers = styled.div`
     align-items: center;
     text-align: center;
     padding-bottom: 40px;
-    background-color: whitesmoke;
+    background-color: white;
     `
     export const Title = styled.div`
     text-decoration-color: blue;

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import GlobalStateContext from '../global/GlobalStateContext';
 import { useNavigate } from 'react-router-dom';
 import { goToDetail } from "../routes/coordinator";
-import {MovieCard, H2, P} from "../components/MovieCard"
+import {MovieCard, H2, P} from "../Styled/MovieCard"
 
 
 
@@ -25,9 +25,9 @@ export const Movie = ({movie}) => {
 
     return (
       <MovieCard onClick={()=> onClickCard(movie.id)}>
-        <H2>{movie.title}</H2>
+        <H2>{movie.title}</H2><P>{movie.release_date}</P>
         <img src={"https://image.tmdb.org/t/p/w300" + movie.backdrop_path} alt={movie.path} />
-        <P>{movie.release_date}</P>
+        
       </MovieCard>
     );
   };

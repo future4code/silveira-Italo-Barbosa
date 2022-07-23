@@ -1,5 +1,5 @@
 import React from "react";
-import { TvCard } from "./TvCard";
+import { TvCard } from "../Styled/TvCard";
 
 export const TV = ({tv}) => {
     return (
