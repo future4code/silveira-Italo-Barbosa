@@ -10,17 +10,17 @@ export const Page = () => {
     const { setPage } = useContext(GlobalStateContext)
     
 
-    const changePage = (nPage) => setPage(nPage);
+    const nextPage = (nPage) => setPage(nPage);
     
 
     return (
       <div>
-        {page === 1 ? <></> : <Button variant="outlined" color="error" onClick={() => changePage((page - 1))}>{page - 1}</Button>}
-            <Button variant="contained" onClick={() => changePage((page + 1))}>{page + 1}</Button>
-            <Button variant="contained" onClick={() => changePage((page + 2))}>{page + 2}</Button>
-            <Button variant="contained" onClick={() => changePage((page + 3))}>{page + 3}</Button>
-            <Button variant="contained" onClick={() => changePage((page + 4))}>{page + 4}</Button>
-            <Button variant="contained" onClick={() => changePage((page + 5))}>{page + 5}</Button>
+        {page === 1 ? <></> : <Button variant="outlined" color="error" onClick={() => nextPage((page - 1))}>{page - 1}</Button>}
+            <Button variant="contained" onClick={() => nextPage((page + 1))}>{page + 1}</Button>
+            <Button variant="contained" onClick={() => nextPage((page + 2))}>{page + 2}</Button>
+            <Button variant="contained" onClick={() => nextPage((page + 3))}>{page + 3}</Button>
+            <Button variant="contained" onClick={() => nextPage((page + 4))}>{page + 4}</Button>
+            <Button variant="contained" onClick={() => nextPage((page + 5))}>{page + 5}</Button>
       </div>
     )
 
