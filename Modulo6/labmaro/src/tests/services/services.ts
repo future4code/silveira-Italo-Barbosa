@@ -22,7 +22,7 @@ export class TokenGeneratorMock {
         return "token"
     }
 
-    public getData(token: string) {
+    public getTokenData(token: string) {
         return {
             id: "id_mock",
             email: "email_mock"

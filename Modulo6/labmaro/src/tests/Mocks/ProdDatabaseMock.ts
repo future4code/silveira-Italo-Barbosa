@@ -1,9 +1,11 @@
-import { Produto } from "./ProdutoMock";
+import { Produto } from "../../model/Produto";
+
 
 
 
 export class ProdDatabaseMock {
-    public async insertProduto(produto: Produto): Promise<void> {
+    insertProduto = async (produto: Produto) => {
+       
 
     }
   

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "clear && tsc && node ./build/index.js",
-    "dev": "clear && tsnd ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node ./build/index.js",
+    "dev": "tsnd ./src/index.ts",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Italo",
