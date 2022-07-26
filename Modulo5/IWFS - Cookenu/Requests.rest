@@ -1,0 +1,55 @@
+POST http://localhost:3005/signup
+
+Content-Type: application/json
+
+{
+   "name": "Italo", 
+   "role": "Admin", 
+   "email": "tamtam@hotmail.com" ,
+   "password": "itahafala"
+}
+
+POST http://localhost:3005/login
+
+Content-Type: application/json
+
+{
+	"email": "tamtamtam@hotmail.com",
+	"password": "escreveunaoleu"
+}
+
+GET http://localhost:3005/user/profile
+Authorization: {token}
+
+GET http://localhost:3005/user/:??
+Authorization: {token}
+
+
+POST http://localhost:3005/recipe
+Authorization: {token}
+Content-Type: application/json
+
+{
+"title":"Cuscuz recheado",
+"description":"
+1 colher de sopa de manteiga
+1 banana-da-terra
+1 calabresa cortada em cubos
+1/2 cebola picada
+
+2 xícaras de farinha de milho para cuscuz
+1 pitada de sal
+1 colher de sopa de açúcar
+1 colher de sopa de farinha de mandioca
+Água para hidratar
+50 gramas de queijo bola fatiado
+1 colher de sopa de raspas de manteiga
+
+"
+}
+
+POST http://localhost:3005/recipe/:id
+Authorization: {token}
+Content-Type: application/json
+
+
