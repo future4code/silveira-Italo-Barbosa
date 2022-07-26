@@ -1,0 +1,13 @@
+
+
+POST http://localhost:3005/user/signup
+Content-Type: application/json
+
+
+{
+	"name": "Italo",
+	"email": "tamtammtam@hotmail.com",
+	"password": "forageno",
+	"role": "ADMIN"
+}
+    
