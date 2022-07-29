@@ -12,7 +12,7 @@
 
 ##  🕵Sobre
 
-Projeto back-end realizado através de React.js com tecnologias como router, axios, styled-components e MUI.
+Projeto front-end realizado através de React.js com tecnologias como router, axios, styled-components e MUI.
 Baseando-se na API TheMovieDB.
 
 ---
