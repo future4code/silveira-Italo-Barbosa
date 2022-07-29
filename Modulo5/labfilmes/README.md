@@ -17,7 +17,7 @@ Baseando-se na API TheMovieDB.
 
 ---
 
-##  👩🏾Quem Faz 
+## 👨🏻🏾Quem Faz 
 
 - 
 - Italo souza
