@@ -1,6 +1,12 @@
 import React, { useContext } from 'react';
 import GlobalStateContext from '../Global/GlobalStateContext';
 import HomeCard from '../Components/homeCard';
+import { BackgroundDyn, Sorteio } from '../Styled/theme';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+
 
 
 const Home = () => {
@@ -12,6 +18,9 @@ const Home = () => {
     const { setSelect } = useContext(GlobalStateContext)
     const { concursoId } = useContext(GlobalStateContext)
     const { setConcursoId } = useContext(GlobalStateContext)
+
+
+
 
     const onSelect = (event) => {
         setSelect(event.target.value)
@@ -41,24 +50,21 @@ const Home = () => {
 
     return (
         <div>
-
-            <div loteria={select}>
-                <select name='select' onChange={onSelect} value={select}>
-                    <option value="" disabled>Escolha um</option>
-                    {list}
-                </select>
+            <BackgroundDyn loteria={select}>
+                <FormControl sx={{ m: 1, minWidth: 100 }}>
+                    <h5 id="select">Selecione</h5>
+                    <select name='select' onChange={onSelect} value={select}>
+                        {list}
+                    </select>
+                </FormControl>
                 <div>{nomes}</div>
-                <p >Gerando: <b>{concursoId.id}</b></p>
-            </div>
-            <div>
-                <div>
-                    {sorteio}
-                </div>
-            </div>
-
+                <p >Concurso Nº:<b>{concursoId.id}</b></p>
+            </BackgroundDyn>
+            <Sorteio>
+                {sorteio}
+            </Sorteio>
         </div>
     )
-
 }
 
 
