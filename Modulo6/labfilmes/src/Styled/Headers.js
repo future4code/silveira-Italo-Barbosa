@@ -8,7 +8,7 @@ export const Headers = styled.div`
     padding-bottom: 40px;
     background-color: white;
     `
-    export const Title = styled.div`
+export const Title = styled.div`
     text-decoration-color: blue;
     background-color: none;
     color: #1565c0;

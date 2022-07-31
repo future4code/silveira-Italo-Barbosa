@@ -25,10 +25,10 @@ export const MovieCard = styled.div`
     `
 
 export const H2 = styled.h2`
-        text-decoration: black;
-        text-shadow: white;
-        margin: 0;
-        padding: 0;
+    text-decoration: black;
+    text-shadow: white;
+    margin: 0;
+    padding: 0;
 
 `
 export const P = styled.h3`

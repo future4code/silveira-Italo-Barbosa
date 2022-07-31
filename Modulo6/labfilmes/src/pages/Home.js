@@ -3,7 +3,7 @@ import GlobalStateContext from '../global/GlobalStateContext';
 import { Movie } from '../components/movies';
 import ScrollableTabsButtonAuto, { ExCard } from "../components/TableCard"
 import { Page } from '../components/page';
-import { PCard} from '../Styled/PCard';
+import { PCard } from '../Styled/PCard';
 import { Genrer } from '../components/genres';
 import { Headers, Title } from '../Styled/Headers';
 
@@ -23,8 +23,6 @@ const Home = () => {
   const { popular } = useContext(GlobalStateContext);
   const { tokenV } = useContext(GlobalStateContext)
   const { genreId } = useContext(GlobalStateContext)
-  
-  
 
 
 
@@ -32,9 +30,11 @@ const Home = () => {
 
 
 
- 
 
-  
+
+
+
+
 
   const list = popular && popular.filter((movie) => {
     if (genreId.length == 0) {
@@ -69,10 +69,10 @@ const Home = () => {
       </Headers>
       <PCard>
         <ExCard>
-        {list}
+          {list}
           {tokenV}
         </ExCard>
-        <Page/>
+        <Page />
       </PCard>
     </div>
   )

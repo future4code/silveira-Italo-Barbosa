@@ -10,10 +10,10 @@ const GlobalState = (props) => {
   const [tokenV, setTokenV] = useState([])
   const [genres, setGenres] = useState([])
   const [genreId, setGenreId] = useState([])
-  const [ movie, setMovie ] = useState([])
+  const [movie, setMovie] = useState([])
   const [movieId, setMovieId] = useState(0)
   const [movieDetail, setMovieDetail] = useState(0)
-  const [ page, setPage ] = useState(1)
+  const [page, setPage] = useState(1)
   const [review, setReview] = useState()
   const request_token = localStorage.getItem("requesttoken")
 
@@ -57,34 +57,26 @@ const GlobalState = (props) => {
 
   };
 
- /* const getMovieDetail = () => {
-    axios.get(`${BASE_URL}/movie/${movieId}?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
-      .then((response) => {
-        setMovieDetail(response.data.results)
-      }).catch((error) => {
-        console.log(error.data)
-      })
-  }*/
-
   const getMovieId = () => {
     axios.get(`${BASE_URL}/movie/${movieId}?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
-    .then(response => {
+      .then(response => {
         setMovie(response.data);
-    })
-    .catch(error => {
+      })
+      .catch(error => {
         console.log(error.message);
-    });
-   };
+      });
+  };
 
-   const getReviews = () => {
+  const getReviews = () => {
+    // Não funcional por falta de claridade na Api
     axios.get(`${BASE_URL}/movie/${movieId}/reviews?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
-    .then(response => {
+      .then(response => {
         setReview(response.data.results);
-    })
-    .catch(error => {
+      })
+      .catch(error => {
         console.log(error.message);
-    });
-   };
+      });
+  };
 
   const getGenres = () => {
     axios.get(`${BASE_URL}/genre/movie/list?api_key=6a875427d321339817527aa3cafc6948&${request_token}`, Headers)
@@ -115,7 +107,6 @@ const GlobalState = (props) => {
     setTv,
     getGenres,
     setGenres,
-    // getMovieDetail,
     setMovieDetail,
     getMovieId,
     setMovieId,
