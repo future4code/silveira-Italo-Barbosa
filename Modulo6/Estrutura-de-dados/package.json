@@ -1,0 +1,12 @@
+{
+   "scripts": {
+      "linked-list": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/LinkedList",
+      "stack": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/Stack",
+      "queue": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/Queue"
+   },
+   "devDependencies": {
+      "@types/node": "^15.3.0",
+      "ts-node-dev": "^1.1.6",
+      "typescript": "^4.2.4"
+   }
+}

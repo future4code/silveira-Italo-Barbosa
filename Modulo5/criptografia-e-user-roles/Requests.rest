@@ -1,0 +1,21 @@
+
+POST http://localhost:3005/user/signup
+Content-Type: application/json
+
+{
+   "name": "Norman", 
+   "nickname": "Goblin", 
+   "email": "norman@oscorp.com" ,
+   "password": "ihfala"
+}
+
+
+POST http://localhost:3005/user/login
+Content-Type: application/json
+
+{
+	"email": "tamtamtam@hotmail.com",
+	"password": "escreveunaoleu"
+}
+
+GET http://localhost:3005/user/profile/id
