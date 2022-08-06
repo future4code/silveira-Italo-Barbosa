@@ -52,10 +52,9 @@ Esta é uma Case de Front-end, realizada através do Bootcamp da Labenu com intu
 
 ## ☑️Requisitos de Funcionalidade
 
-- [x] Cadastro de Usuário.
-- [x] Login.
-- [x] Cadastro de produto.
-- [x] Busca de produto utilizando três formas diferentes.
+- [x] Select com todas as opções de loteria.
+- [x] theme muda de acordo com a loteria escolhida.
+
 
 
 
