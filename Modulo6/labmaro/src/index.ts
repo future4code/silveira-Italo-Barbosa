@@ -32,6 +32,6 @@ app.post("/login", userController.login)
 
 // Post
 app.post("/prod", prodController.createProd)
-app.get("/prod/:id", prodController.getProdutoById)
-app.get("/prod/", prodController.getProdutoByNome)
-app.get("/prod/", prodController.getProdutoByTag)
+app.get("/prod?=id", prodController.getProdutoById)
+app.get("/prod", prodController.getProdutoByNome)
+app.get("/prod", prodController.getProdutoByTag)

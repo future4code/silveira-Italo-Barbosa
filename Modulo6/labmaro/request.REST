@@ -15,24 +15,33 @@ Content-Type: application/json
 
 
 ###
-
-POST http://localhost:3005/prod/id/token
+POST http://localhost:3005/prod
 Content-Type: application/json
-Authorization: {token}
+
+{
+    "nome": "calça",
+    "data_criacao": "23-12-2021",
+    "tag": "MODA"
+}
+
+###
+GET http://localhost:3005/prod?=id
+Content-Type: application/json
+Authorization: {headers:token}
 
 ###
 
-POST http://localhost:3005/prod/token
+GET http://localhost:3005/prod
 Content-Type: application/json
-Authorization: {token}
+Authorization: {headers:token}
 
 {
     "nome": ""
 }
-
-POST http://localhost:3005/prod/token
+###
+GET http://localhost:3005/prod
 Content-Type: application/json
-Authorization: {token}
+Authorization: {headers:token}
 
 {
     "tag": ""
