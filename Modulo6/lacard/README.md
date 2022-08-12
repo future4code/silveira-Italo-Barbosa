@@ -57,8 +57,11 @@ Esta é uma Case de Back-end, realizada através do Bootcamp da Labenu com intui
 - [x] Registro de compras com dois metodos de pagamento incluindo  cartão e boleto.
 - [x] Busca status compra.
 
+---
 
+## Documentação
 
+-** https://documenter.getpostman.com/view/20417825/VUjSFPBV **
 ---
 
 ## 🔗Link para Acessar
