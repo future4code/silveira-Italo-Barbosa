@@ -19,3 +19,4 @@ let ans = 0
            return ans; 
        }
   
+       console.log(Negatives(matriz))
