@@ -63,7 +63,7 @@ Esta é uma Case de Back-end, realizada através do Bootcamp da Labenu com intui
 
 ## 🔗Link para Acessar
 
-- **  **
+- ** https://lacard.herokuapp.com/  **
 
 ---
 
