@@ -20,13 +20,13 @@ CREATE TABLE payment_wirecard(
     status ENUM ("A PAGAR", "PAGO") NOT NULL DEFAULT "A PAGAR",
     boleto_number BIGINT UNIQUE,
     FOREIGN KEY (buy_id) REFERENCES buys_wirecard(id),
-    FOREIGN KEY (client_id) REFERENCES clients_wirecard(id),
+    FOREIGN KEY (client_id) REFERENCES client_wirecard(id),
 )
 
 CREATE TABLE card_wirecard(
     id VARCHAR(255) PRIMARY KEY,
     buy_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (buyer_id) REFERENCES buys_wirecard(id),
+    FOREIGN KEY (buy_id) REFERENCES buys_wirecard(id),
     card_number BIGINT NOT NULL,
     card_holder VARCHAR(255) NOT NULL,
     card_expiration_date DATE NOT NULL,
