@@ -1,0 +1,1 @@
+export const CardTrue: number[]  = [212, 754, 856, 352, 421]
