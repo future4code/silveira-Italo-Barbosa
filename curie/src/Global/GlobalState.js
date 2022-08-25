@@ -1,27 +1,34 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { GlobalStateContext } from "./GlobalStateContext";
-import { goToHomePage } from "../../Routes/coordinator";
+import { goToHomePage } from "../Routes/Coordinator";
+import { useNavigate } from "react-router-dom";
+import useForm from "../Hooks/Form"
+import { Url } from '../Constant/Url'
+
 
 export default function GlobalState(props) {
 
 
+  const navigate = useNavigate();
+
   const [nameHeader, setNameHeader] = useState("");
   const [buttonBack, setButtonBack] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
+  const { form, cleanField } = useForm()
 
-  const signUp = (body, Navigate, clear, setIsLoading) => {
+  const signUp = (body, cleanField, setIsLoading) => {
     setIsLoading(true);
 
-    axios.post(`${url}/signup`, body)
+    axios.post(`${Url}/signup`, body)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        clear();
+        cleanField();
         setIsLoading(false);
       })
       .catch((error) => {
         alert(error.response.data.message);
-        clear();
+        cleanField();
         setIsLoading(false);
       });
   };
@@ -30,9 +37,9 @@ export default function GlobalState(props) {
     event.preventDefault();
     setIsLoading(true);
     axios
-      .post(`${url}/login`, form)
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
+      .post(`${Url}/login`, form)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
         goToHomePage(navigate);
         cleanField();
         setIsLoading(false)

@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CadastroPage } from "../../Routes/coordinator";
-import useForm from "../../Hooks/useForm";
-import { CadastroContainer } from "../../Styles/LoginStyle";
-import { InputContainer, ScreenContainer, StyledForm, StyledLogo } from "../../Styles/HomeStyles";
+import { CadastroPage } from "../Routes/Coordinator";
+import useForm from "../Hooks/Form";
+import { CadastroContainer } from "../Styles/LoginStyle";
+import { InputContainer, ScreenContainer, StyledForm, StyledLogo } from "../Styles/HomeStyle";
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
-import { StyledIcon, StyledInputPassword } from "../../Styles/CadastroStyles";
+import { StyledIcon, StyledInputPassword } from "../Styles/CadastroStyle";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { GlobalStateContext } from "../Global/GlobalStateContext";
 
 
 
@@ -18,6 +19,8 @@ const LoginPage = () => {
     const { form, onChange, cleanField } = useForm({ email: "", password: "" });
     const [isLoading, setIsLoading] = useContext(GlobalStateContext)
     const [ showPassword, setShowPassword ] = useState(false);
+    const { login } = useContext(GlobalStateContext);
+
 
 return (
     <ScreenContainer>

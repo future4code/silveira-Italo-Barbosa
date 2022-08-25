@@ -10,7 +10,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home/>} />
                 <Route path="/Login" element={<Login/>} />
                 <Route path="/Cadastro" element={<Cadastro/>} />
                 <Route path="*" element={<div>EI! Oque faz aqui??
