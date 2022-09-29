@@ -2,20 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { GlobalStateContext } from "./GlobalStateContext";
 import { goToHomePage } from "../Routes/Coordinator";
-import { useNavigate } from "react-router-dom";
-import useForm from "../Hooks/Form"
 import { Url } from '../Constant/Url'
+import { useNavigate } from "react-router-dom";
 
 
 export default function GlobalState(props) {
 
 
-  const navigate = useNavigate();
+  const Navigate = useNavigate()
 
   const [nameHeader, setNameHeader] = useState("");
   const [buttonBack, setButtonBack] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
-  const { form, cleanField } = useForm()
+  
 
   const signUp = (body, cleanField, setIsLoading) => {
     setIsLoading(true);
@@ -33,31 +32,15 @@ export default function GlobalState(props) {
       });
   };
 
-  const login = (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    axios
-      .post(`${Url}/login`, form)
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        goToHomePage(navigate);
-        cleanField();
-        setIsLoading(false)
-      })
-      .catch((error) => {
-        alert(error);
-        setIsLoading(false)
-      });
-  };
+ 
 
-  const logout = (Navigate) => {
+  const logout = () => {
     localStorage.removeItem("token");
     goToHomePage(Navigate);
   };
 
 
   const data = {
-    login,
     signUp,
     logout,
     nameHeader,

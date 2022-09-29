@@ -1,6 +1,6 @@
-export const goToPage = (navigate, pageIndex) => {    
-    navigate(pageIndex); 
-}
+// export const goToPage = (navigate, pageIndex) => {    
+//     navigate(pageIndex); 
+// }
 
 export const goToHomePage = (navigate) => {
     navigate('/');

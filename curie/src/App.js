@@ -1,12 +1,18 @@
 import React from "react";
-import Router from "./Routes/Router";
-import GlobalState from "./Global/GlobalState";
+import GlobalState from './Global/GlobalState'
+import HomePage from "./Pages/Home";
+import Router from './Routes/Router'
+import { GlobalStyle } from "./Styles/HomeStyle";
 
 function App() {
   return (
-    <GlobalState>
-      <Router />
-    </GlobalState>
+    <div>
+      {/* <GlobalStyle />
+      <GlobalState>
+        <Router />
+      </GlobalState> */}
+      <HomePage/>
+    </div>
   );
 }
 
